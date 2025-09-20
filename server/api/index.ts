@@ -1,3 +1,3 @@
-export default defineEventHandler((event) => {
-  return useRuntimeConfig(event).apiToken // Returns `dev_token`
+export default defineEventHandler(() => {
+  return process.env.NITRO_API_TOKEN 
 });
