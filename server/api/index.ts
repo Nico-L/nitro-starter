@@ -1,3 +1,3 @@
-export default defineEventHandler(() => {
-  return useRuntimeConfig(event).apiToken
-})
+export default defineEventHandler((event) => {
+  return useRuntimeConfig(event).apiToken // Returns `dev_token`
+});
