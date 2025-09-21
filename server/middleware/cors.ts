@@ -8,4 +8,4 @@ export default defineEventHandler(async (event) => {
     if (event.node.req.method === 'OPTIONS') {
     return null
     }
-}
+})
