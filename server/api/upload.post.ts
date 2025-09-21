@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
     method: 'POST',
     headers: {
       'Authorization': 'Token ' + process.env.BASEROW_DEVOIRS,
-      'Content-Type': 'multipart/form-data'
+      'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
     },
     body: body
   })
