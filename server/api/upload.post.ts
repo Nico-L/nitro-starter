@@ -8,8 +8,7 @@ export default defineEventHandler(async (event) => {
   const data = await $fetch<Repo[]>('https://api.baserow.io/api/user-files/upload-file/', {
     method: 'POST',
     headers: {
-      'Authorization': 'Token ' + process.env.BASEROW_DEVOIRS,
-      "Content-Type": "multipart/form-data"
+      'Authorization': 'Token ' + process.env.BASEROW_DEVOIRS
     },
     body: dataFile
   })
