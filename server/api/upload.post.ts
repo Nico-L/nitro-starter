@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     headers: {
       'Authorization': 'Token ' + process.env.BASEROW_DEVOIRS
     },
-    body: dataFile
+    body: body
   })
 
   return data
