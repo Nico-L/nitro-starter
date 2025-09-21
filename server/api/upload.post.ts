@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
     method: 'POST',
     headers: {
       'Authorization': 'Token ' + process.env.BASEROW_DEVOIRS,
-      'Content-Type': 'application/json'
+      'Content-Type': 'multipart/form-data'
     },
     body: body
   })
