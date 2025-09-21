@@ -10,5 +10,5 @@ export default defineEventHandler(async (event) => {
     body: body
   })
 
-  return query
+  return data
 })
