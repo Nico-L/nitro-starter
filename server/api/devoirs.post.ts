@@ -1,7 +1,6 @@
 import { Repo } from '~/types'
 
 export default defineEventHandler(async (event) => {
-    console.log('event', event)
   const data = await $fetch<Repo[]>(process.env.BASEROW_URL+'669051/?user_field_names=true', {
     method: 'GET',
     headers: {
@@ -9,5 +8,5 @@ export default defineEventHandler(async (event) => {
     }
   })
 
-  return data
+  return event
 })
