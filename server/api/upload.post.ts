@@ -1,12 +1,16 @@
 import { Repo } from '~/types'
 
 export default defineEventHandler(async (event) => {
-  const receivedData = await readMultipartFormData(event)
-  console.log('received data', receivedData.data)
+  const formDataBody = await readMultipartFormData(event)
+  console.log('received data', formDataBody[0].data)
   const formData = new FormData()
-  const blob = new Blob(receivedData.data, { type: receivedData.type });
-  formData.append(receivedData.name, blob)
-  console.log('blob', receivedData.data)
+   // Append the data to a new FormData (need to convert Buffer into string / Blob)
+         formDataBody?.forEach((value) => {
+             if (value.name && value.data) {
+               const blob = new Blob([value.data], { type: value.type });
+               formData.append(value.name, blob)
+             }
+         })
   const data = await $fetch<Repo[]>('https://api.baserow.io/api/user-files/upload-file/', {
     method: 'POST',
     headers: {
