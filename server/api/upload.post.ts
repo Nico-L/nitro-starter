@@ -16,10 +16,10 @@ export default defineEventHandler(async (event) => {
    // Append the data to a new FormData (need to convert Buffer into string / Blob)
   var forms=[]
   var retour = []
-   formDataBody?.forEach(async (value) => {
+  for (const form of formDataBody) {
        const formData = new FormData()
-       if (value.data) {
-         const blob = new Blob([value.data], { type: value.type });
+       if (form.data) {
+         const blob = new Blob([form.data], { type: form.type });
          formData.append('file', blob)
        
          try{
@@ -28,8 +28,8 @@ export default defineEventHandler(async (event) => {
             console.log('error', e)
           }
          retour.push(data)
-     }
-   })
+       }
+   }
   console.log('retour', retour)
   return retour
 })
