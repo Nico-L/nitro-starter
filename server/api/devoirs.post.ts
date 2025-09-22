@@ -2,6 +2,7 @@ import { Repo } from '~/types'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
+  console.log('body received', body)
   const data = await $fetch<Repo[]>(process.env.BASEROW_URL+'669051/?user_field_names=true', {
     method: 'POST',
     headers: {
