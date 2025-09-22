@@ -20,6 +20,6 @@ export default defineEventHandler(async (event) => {
       })
        retour.push(data) 
    })
-
+  console.log('retour', retour)
   return retour
 })
