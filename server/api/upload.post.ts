@@ -16,15 +16,18 @@ export default defineEventHandler(async (event) => {
    })
 console.log('forms', forms)
 forms?.forEach(async (value) => {
-  const data = await $fetch<Repo[]>('https://api.baserow.io/api/user-files/upload-file/', {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Token ' + process.env.BASEROW_DEVOIRS
-        },
-        body: value
-      })
-     console.log('data', data)
-     retour.push(data) 
+  try{
+    var data = await $fetch<Repo[]>('https://api.baserow.io/api/user-files/upload-file/', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Token ' + process.env.BASEROW_DEVOIRS
+          },
+          body: value
+        })
+       console.log('data', data)
+       retour.push(data) 
+  } catch (e) {
+    console.log('error', e)
 })
   console.log('retour', retour)
   return retour
