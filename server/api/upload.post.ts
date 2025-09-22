@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
    // Append the data to a new FormData (need to convert Buffer into string / Blob)
   var forms=[]
   var retour = []
-   formDataBody?.forEach((value) => {
+   formDataBody?.forEach(async (value) => {
        const formData = new FormData()
        if (value.data) {
          const blob = new Blob([value.data], { type: value.type });
