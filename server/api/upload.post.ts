@@ -16,6 +16,7 @@ export default defineEventHandler(async (event) => {
    })
 console.log('forms', forms)
 forms?.forEach( async (form) => {
+  console.log('bob ?')
   try{
     var data = await $fetch<Repo[]>('https://api.baserow.io/api/user-files/upload-file/', {
           method: 'POST',
