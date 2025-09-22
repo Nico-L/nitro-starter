@@ -1,6 +1,6 @@
 import { Repo } from '~/types'
 
-async zeFetch (form) (
+async function zeFetch (form): Promise<number> {
   return $fetch<Repo[]>('https://api.baserow.io/api/user-files/upload-file/', {
               method: 'POST',
               headers: {
@@ -8,7 +8,7 @@ async zeFetch (form) (
               },
               body: form
             })
-  )
+}
 
 export default defineEventHandler(async (event) => {
   const formDataBody = await readMultipartFormData(event)
