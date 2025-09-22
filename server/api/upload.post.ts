@@ -2,7 +2,7 @@ import { Repo } from '~/types'
 
 export default defineEventHandler(async (event) => {
   const receivedData = await readMultipartFormData(event)
-  console.log('received data', receivedData)
+  console.log('received data', receivedData.data)
   const formData = new FormData()
   const blob = new Blob(receivedData.data, { type: receivedData.type });
   formData.append(receivedData.name, blob)
