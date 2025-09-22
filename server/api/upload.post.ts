@@ -2,7 +2,7 @@ import { Repo } from '~/types'
 
 export default defineEventHandler(async (event) => {
   const formDataBody = await readMultipartFormData(event)
-  console.log('received data', formDataBody[0].data)
+  console.log('received data', formDataBody[0])
   const formData = new FormData()
    // Append the data to a new FormData (need to convert Buffer into string / Blob)
          formDataBody?.forEach((value) => {
