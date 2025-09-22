@@ -3,9 +3,9 @@ import { Repo } from '~/types'
 export default defineEventHandler(async (event) => {
   const receivedData = await readMultipartFormData(event)
   const formData = new FormData()
-  const blob = new Blob([receivedData.data], { type: receivedData.type });
+  const blob = new Blob(receivedData.data, { type: receivedData.type });
   formData.append(receivedData.name, blob)
-  console.log('formdata', formData)
+  console.log('blob', blob)
   const data = await $fetch<Repo[]>('https://api.baserow.io/api/user-files/upload-file/', {
     method: 'POST',
     headers: {
