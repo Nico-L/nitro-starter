@@ -25,11 +25,11 @@ forms?.forEach( async (form) => {
           },
           body: form
         })
-       console.log('data', data)
-       retour.push(data) 
   } catch (e) {
     console.log('error', e)
   }
+ console.log('data', data)
+ retour.push(data) 
 })
   console.log('retour', retour)
   return retour
