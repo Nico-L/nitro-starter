@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
          formDataBody?.forEach((value) => {
              if (value.name && value.data) {
                const blob = new Blob([value.data], { type: value.type });
-               formData.append(value.name, blob)
+               formData.append('file', blob)
              }
          })
   const data = await $fetch<Repo[]>('https://api.baserow.io/api/user-files/upload-file/', {
