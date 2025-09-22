@@ -18,6 +18,7 @@ export default defineEventHandler(async (event) => {
         },
         body: formData
       })
+     console.log('data', data)
        retour.push(data) 
    })
   console.log('retour', retour)
