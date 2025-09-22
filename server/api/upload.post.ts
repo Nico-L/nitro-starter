@@ -12,9 +12,7 @@ async function zeFetch (form): Promise<number> {
 
 export default defineEventHandler(async (event) => {
   const formDataBody = await readMultipartFormData(event)
-  console.log('received data', formDataBody)
    // Append the data to a new FormData (need to convert Buffer into string / Blob)
-  var forms=[]
   var retour = []
   for (const form of formDataBody) {
        const formData = new FormData()
@@ -30,6 +28,5 @@ export default defineEventHandler(async (event) => {
          retour.push(data)
        }
    }
-  console.log('retour', retour)
   return retour
 })
