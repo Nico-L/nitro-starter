@@ -27,7 +27,7 @@ console.log('forms', forms)
        retour.push(data) 
   } catch (e) {
     console.log('error', e)
-})
+  }
   console.log('retour', retour)
   return retour
 })
