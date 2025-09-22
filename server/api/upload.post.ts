@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
   const formData = new FormData()
   const blob = new Blob([receivedData.data], { type: receivedData.type });
   formData.append(receivedData.name, blob)
-
+  console.log('formdata', formData)
   const data = await $fetch<Repo[]>('https://api.baserow.io/api/user-files/upload-file/', {
     method: 'POST',
     headers: {
